@@ -1,0 +1,44 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: default
+  labels:
+    app: mongo
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+      version: v1
+  template:
+    metadata:
+      creationTimestamp: 
+      labels:
+        app: mongo
+        version: v1
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+          protocol: TCP 
+          name: http # added this to the Deployment
+        resources: {}
+        terminationMessagePath: "/dev/termination-log"
+        terminationMessagePolicy: File
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1

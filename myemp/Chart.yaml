@@ -1,0 +1,10 @@
+apiVersion: v1
+description: A Helm chart for Kubernetes
+name: myemp
+version: 0.1.0
+description: Open source continuous integration server. It supports multiple SCM tools
+  including CVS, Subversion and Git. It can execute Apache Ant and Apache Maven-based
+  projects as well as arbitrary scripts.
+maintainers:
+- name: ernesen
+  email: ernese@sg.ibm.com

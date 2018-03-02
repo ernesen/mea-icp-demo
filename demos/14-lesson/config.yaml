@@ -1,0 +1,20 @@
+api:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 200m
+      memory: 256Mi
+  livenessProbe:
+    initialDelaySeconds: 300
+  config:
+    repos:
+      # Official respositories
+      - name: stable
+        url: https://kubernetes-charts.storage.googleapis.com
+        source: https://github.com/kubernetes/charts/tree/master/stable
+      cacheRefreshInterval: 15
+ingress:
+  hosts:
+    - monocular.local
