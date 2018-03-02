@@ -63,9 +63,9 @@ node {
 
         if [ $checkhelm -eq 0 ]; then
           #sh 'helm init'
-          sh 'helm install --name myemp ./myemp'
+          sh 'helm install --name myemp myemp/'
         else
-          sh 'helm upgrade myemp ./myemp'
+          sh 'helm upgrade myemp myemp/'
           sh 'helm history myemp'
         fi
       '''
