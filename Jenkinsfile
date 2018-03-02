@@ -54,7 +54,7 @@ node {
             app.push("latest")
         }
     }
-/*
+
     stage('Deploy Helm') {
       sh '''
         #!/bin/sh
@@ -63,12 +63,12 @@ node {
 
         if [ $checkhelm -eq 0 ]; then
           #sh 'helm init'
-        	sh 'helm install --name myemp ./myemp'
+          sh 'helm install --name myemp ./myemp'
         else
           sh 'helm upgrade myemp ./myemp'
           sh 'helm history myemp'
         fi
       '''
     }
-*/
+
 }
